@@ -56,18 +56,20 @@ var url = {
 
     for ( var i = 0; i < vals.length; i++ ) {
       
-      val = vals[ i ].split('=');
+      val = vals[i].split('=');
       
       // [ "key", "value" ]
       keys.push( val[0] );
       
       // key = value
-      keys[ val[0] ] = val[ 1 ];
+      keys[ val[0] ] = val[1];
 
     }
     
-    if ( keys[ key ] ) {
-      return keys[ key ];
+    var value = ( keys[key] ) || false;
+    console.log(value);
+    if ( keys[key] ) {
+      return keys[key];
     }
 
     else {
