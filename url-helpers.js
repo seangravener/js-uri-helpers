@@ -19,7 +19,7 @@ var url = {
     var loc       = window.location,
         url       = loc.protocol + "//" + loc.host + loc.pathname;
         segs      = window.location.pathname.split( '/' ),
-        uri       = window.location.href.replace( loc.protocol + "//" + loc.host, '');
+        uri       = window.location.href.replace( loc.protocol + "//" + loc.host, '' );
 
     // just return the entire uri path
     if ( segment == 'uri' ) {
@@ -49,12 +49,12 @@ var url = {
    */
   qs: function ( key, qs ) {
   
-    var qs     = qs || window.location.href.slice( window.location.href.indexOf('?') + 1 ),
+    var qs     = qs || window.location.href,
         keys   = [], 
         val,
-        vals   = qs.split('&');
-    
-    for( var i = 0; i < vals.length; i++ ) {
+        vals   = qs.slice( qs.indexOf('?') + 1 ).split(/[;&]/);
+
+    for ( var i = 0; i < vals.length; i++ ) {
       
       val = vals[ i ].split('=');
       
