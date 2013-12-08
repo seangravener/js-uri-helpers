@@ -3,12 +3,16 @@
 <head>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script class="has-qs" src="url-helpers.js?func1=red&func2=green"></script>
-  <script class="has-qs" src="url-helpers.js??func3=orange&func4=blue"></script>
+  <script class="has-qs" src="app.js?func3=orange&func4=blue"></script>
   <script>
 
 $(document).ready(function() {
- var qs = $('#has-qs').prop('src');
 
+  console.log('-- test.html --');
+
+  var qs = $('.has-qs').prop('src');
+
+    console.log(qs);
     console.log( url.qs('func1', qs) );
 
     console.log( url.qs('loc') );
