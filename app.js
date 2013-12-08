@@ -1,14 +1,17 @@
 $(document).ready(function() {
- 
- console.log('-- app.js --');
 
- var qs = $('.has-qs').prop('src');
+  console.log('-- app.js --');
 
-    console.log(qs);
-    console.log( url.qs('func1', qs) );
+  var qs = $('.has-qs').prop('src');
 
-    console.log( url.qs('loc') );
+  console.log(qs);
+  console.log( url.qs('func1', qs) );
 
-    // loop through all script tags
+  console.log( url.qs('loc') );
+
+  // todo: loop through all script tags
+
+
+  // $('body').append(html);
 
 });

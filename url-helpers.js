@@ -67,14 +67,8 @@ var url = {
     }
     
     var value = ( keys[key] ) || false;
-    console.log(value);
-    if ( keys[key] ) {
-      return keys[key];
-    }
-
-    else {
-      return false;
-    }
+    
+    return value;
 
   }
 
