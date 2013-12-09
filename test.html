@@ -2,30 +2,41 @@
 <html>
 <head>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script id="url-helpers-js" src="url-helpers.js?func1=red&func2=green"></script>
-  <script id="app-js" src="app.js?func3=orange&func4=blue"></script>
+  <script id="url-helpers-js" src="url-helpers.js"></script>
+  <script id="app-js" src="app.js?a=alpha;b=bravo;c=charlie;d=delta"></script>
   <script>
 
 $(document).ready(function() {
 
-  console.log('-- test.html --');
+  console.log('-- qs in <script> tag (test.html)--');
+  var uri = $('script#app-js').prop('src');
+  console.log('uri: ' + uri);
+  console.log('a  : ' + url.qs('a', uri) );
+  console.log('b  : ' + url.qs('b', uri) );
+  console.log('c  : ' + url.qs('c', uri) );
+  console.log('d  : ' + url.qs('d', uri) );
+  console.log('e  : ' + url.qs('e', uri) ); // not in qs
 
-  var uri = $('#app-js').prop('src');
-
-    console.log('uri: ' + uri);
-
-    console.log('func1: ' + url.qs('func1', uri) );
-    console.log( url.qs('func3', uri) );
-
-    console.log( url.qs('loc') );
-
-    // loop through all script tags
+  console.log('-- qs in page URI (test.html) --');
+  console.log('uri: ' + url.seg('uri') );
+  console.log('a  : ' + url.qs('a') );
+  console.log('b  : ' + url.qs('b') );
+  console.log('c  : ' + url.qs('c') );
+  console.log('d  : ' + url.qs('d') );
+  console.log('e  : ' + url.qs('e') );
+  
 
 });
    
   </script>
 </head>
 <body>
-  <!-- output -->
+  
+  <ul>
+    <li><a href="?a=alpha">alpha</a></li>
+    <li><a href="?a=beta">beta</a></li>
+    <li><a href="?a=alpha&b=bravo&c=charlie&d=delta">all</a></li>
+  </ul>
+
 </body>
 </html>
