@@ -73,7 +73,28 @@ var helpers = (function (helpers) {
       
       return value;
 
+    },
+
+    /*
+     * updates a url to match the window object's protocol
+     * 
+     * @url: the url string to update with the window's protocol
+     * @protocol: optionally force a protocol. eg 'https:'
+     */
+    pmatch: function ( url, protocol ) {
+
+      var loc      = window.location,
+          parts    = url.split( '//' ), // eg ['http:', 'www.mysite.com']
+          p        = parts[0],
+          uri      = parts[1];
+
+      protocol = protocol || loc.protocol;
+      url = protocol + '//' + uri;
+
+      return url;
+
     }
+
   };
 
   return {
