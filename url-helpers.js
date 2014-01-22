@@ -20,7 +20,7 @@ var helpers = (function (helpers) {
     seg: function ( segment ) {
 
       var loc       = window.location,
-          url       = loc.protocol + "//" + loc.host + loc.pathname;
+          url       = loc.protocol + "//" + loc.host + loc.pathname,
           segs      = window.location.pathname.split( '/' ),
           uri       = window.location.href.replace( loc.protocol + "//" + loc.host, '' );
 
