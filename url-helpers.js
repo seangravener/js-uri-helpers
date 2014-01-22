@@ -3,7 +3,7 @@
  * Sean Gravener
  */
 
-var helpers = (function (helpers) {
+var helpers = (function (helpers) { 'use strict';
 
   var url = {
 
@@ -20,22 +20,25 @@ var helpers = (function (helpers) {
     seg: function ( segment ) {
 
       var loc       = window.location,
-          url       = loc.protocol + "//" + loc.host + loc.pathname;
+          url       = loc.protocol + "//" + loc.host + loc.pathname,
           segs      = window.location.pathname.split( '/' ),
-          uri       = window.location.href.replace( loc.protocol + "//" + loc.host, '' );
+          uri       = window.location.href.replace( loc.protocol + "//" + loc.host, '' ),
+          value;
 
       // just return the entire uri path
       if ( segment == 'uri' ) {
-        return uri;
+        value = uri;
       }
 
       else if ( segs.length >= segment ) {
-        return segs[ segment ];
+        value = segs[ segment ];
       }
 
       else {
-        return false;
+        value = false;
       }
+
+      return value;
 
     },
     
@@ -76,7 +79,7 @@ var helpers = (function (helpers) {
     },
 
     /*
-     * updates a url to match the window object's protocol
+     * Update a URL to match the window object's protocol
      * 
      * @url: the url string to update with the window's protocol
      * @protocol: optionally force a protocol. eg 'https:'
